@@ -8,10 +8,11 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            background: rgb(160,250,246);
-            background: linear-gradient(90deg, rgba(160,250,246,1) 21%, rgba(26,199,245,1) 41%, rgba(17,149,240,1) 67%, rgba(19,90,239,1) 89%);
+            background: rgb(160, 250, 246);
+            background: linear-gradient(90deg, rgba(160, 250, 246, 1) 21%, rgba(26, 199, 245, 1) 41%, rgba(17, 149, 240, 1) 67%, rgba(19, 90, 239, 1) 89%);
         }
-                header {
+
+        header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -20,7 +21,6 @@
         }
 
         .navbar {
-            /* Puedes ajustar el estilo según tus necesidades */
             background-color: #28a745;
         }
 
@@ -37,6 +37,9 @@
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
         }
 
         input {
@@ -59,55 +62,54 @@
 </head>
 <body>
     <header>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Logo</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.html">Iniciar sesión</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Inicio</a>
-                    </li>
-                </ul>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Logo</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Iniciar sesión</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="registro.html">Inicio</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-</header>
+        </nav>
+    </header>
 
-<div class="login-container">
-    <h2>Login</h2>
-    <form id="loginForm">
-        <label for="username">Usuario:</label>
-        <input type="text" id="username" name="username" required>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" name="username" required>
 
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" name="password" required>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
 
-        <button type="button" onclick="login()">Iniciar sesión</button>
-    </form>
-</div>
+            <button type="button" onclick="login()">Iniciar sesión</button>
+        </form>
+    </div>
 
-<script>
-    function login() {
-        var username = document.getElementById('username').value;
-        var password = document.getElementById('password').value;
+    <script>
+        function login() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
 
-        // Aquí deberías realizar la lógica de autenticación del usuario.
-        // Por ejemplo, podrías hacer una solicitud AJAX al servidor para verificar las credenciales.
+            // Aquí deberías realizar la lógica de autenticación del usuario.
+            // Por ejemplo, podrías hacer una solicitud AJAX al servidor para verificar las credenciales.
 
-        // Este es solo un ejemplo básico:
-        if (username === 'usuario' && password === 'contraseña') {
-            alert('Inicio de sesión exitoso');
-        } else {
-            alert('Usuario o contraseña incorrectos');
+            // Este es solo un ejemplo básico:
+            if (username === 'usuario' && password === 'contraseña') {
+                alert('Inicio de sesión exitoso');
+            } else {
+                alert('Usuario o contraseña incorrectos');
+            }
         }
-    }
-</script>
-
+    </script>
 </body>
 </html>
