@@ -16,6 +16,18 @@
             background: linear-gradient(90deg, rgba(160,250,169,1) 21%, rgba(111,245,26,1) 41%, rgba(17,240,103,1) 67%, rgba(19,239,152,1) 89%);
         }
 
+        .navbar {
+      background-color: #28a745; /* Color de la barra de navegación */
+    }
+
+    .navbar-dark .navbar-nav .nav-link {
+      color: #fff; /* Color del texto en los enlaces no seleccionados */
+    }
+
+    .navbar-dark .navbar-nav .nav-link.active {
+      color: #000; /* Color del texto en el enlace seleccionado */
+    }
+
         .register-container {
             background-color: #fff;
             padding: 20px;
@@ -44,7 +56,24 @@
     </style>
 </head>
 <body>
-
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Logo</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="login.html">Iniciar sesión</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="registro.html">Registrarse</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <div class="register-container">
     <h2>Registro</h2>
     <form id="registerForm">
