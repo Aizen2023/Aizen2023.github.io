@@ -145,17 +145,17 @@
             var detailedMessage = message;
 
             if (!isValidEmail(document.getElementById('email').value)) {
-                detailedMessage += '\n- El correo debe tener un formato válido.';
+                detailedMessage += '\n\n- El correo debe tener un formato válido, debe incluir el @.';
             }
 
             if (!isValidPassword(document.getElementById('password').value)) {
-                detailedMessage += '\n- La contraseña debe tener al menos 8 caracteres con al menos una minúscula, una mayúscula y un número.';
+                detailedMessage += '\n\n- La contraseña debe tener al menos 8 caracteres con al menos una minúscula, una mayúscula y un número.';
             }
 
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: detailedMessage
+                html: detailedMessage
             });
         }
 
