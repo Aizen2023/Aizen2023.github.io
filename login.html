@@ -141,10 +141,21 @@
         }
 
         function showError(message) {
+            // Mensaje detallado sobre lo que falta en los campos
+            var detailedMessage = message;
+
+            if (!isValidEmail(document.getElementById('email').value)) {
+                detailedMessage += '\n- El correo debe tener un formato válido.';
+            }
+
+            if (!isValidPassword(document.getElementById('password').value)) {
+                detailedMessage += '\n- La contraseña debe tener al menos 8 caracteres con al menos una minúscula, una mayúscula y un número.';
+            }
+
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: message
+                text: detailedMessage
             });
         }
 
