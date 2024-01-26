@@ -105,12 +105,13 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <script>
-        function login() {
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            // Evitar que el formulario se envíe automáticamente
+            event.preventDefault();
+
+            // Obtener los valores del correo y la contraseña
             var email = document.getElementById('email').value;
             var password = document.getElementById('password').value;
-
-             console.log("Email:", email);
-             console.log("Password:", password);
 
             // Mostrar correo y contraseña con SweetAlert
             showCredentials(email, password);
@@ -132,7 +133,7 @@
 
             // Este es solo un ejemplo básico:
             showSuccess('Inicio de sesión exitoso');
-        }
+        });
 
         function isValidEmail(email) {
             // Utilizar una expresión regular para validar el formato del correo
