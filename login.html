@@ -106,33 +106,11 @@
 
     <script>
         function login() {
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
-
-        // Mostrar correo y contraseña con SweetAlert
-        showCredentials(email, password);
-
-        // Validar el formato del correo
-        if (!isValidEmail(email)) {
-            showError('Formato de correo incorrecto');
-            return;
-        }
-
-        // Validar la contraseña
-        if (!isValidPassword(password)) {
-            showError('La contraseña debe tener al menos 8 caracteres con al menos una minúscula, una mayúscula y un número');
-            return;
-        }
-
-        // Aquí deberías realizar la lógica de autenticación del usuario.
-        // Por ejemplo, podrías hacer una solicitud AJAX al servidor para verificar las credenciales.
-
-        // Este es solo un ejemplo básico:
-        showSuccess('Inicio de sesión exitoso');
-    }
-        function login() {
             var email = document.getElementById('email').value;
             var password = document.getElementById('password').value;
+
+            // Mostrar correo y contraseña con SweetAlert
+            showCredentials(email, password);
 
             // Validar el formato del correo
             if (!isValidEmail(email)) {
@@ -189,6 +167,15 @@
                 icon: 'success',
                 title: 'Éxito',
                 text: message
+            });
+        }
+
+        function showCredentials(email, password) {
+            // Mostrar correo y contraseña con SweetAlert
+            Swal.fire({
+                icon: 'info',
+                title: 'Credenciales',
+                html: `<p>Correo: ${email}</p><p>Contraseña: ${password}</p>`,
             });
         }
     </script>
