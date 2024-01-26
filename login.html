@@ -167,5 +167,41 @@
             });
         }
     </script>
+    <script>
+        async function login() {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            // Validar el formato del correo y la contraseña
+            if (!isValidEmail(email) || !isValidPassword(password)) {
+                showError('Formato de correo o contraseña incorrecto');
+                return;
+            }
+
+            // Simulación de solicitud al servidor (puedes reemplazar esto con una solicitud real a tu backend)
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    // Aquí podrías procesar la respuesta del servidor y almacenar la información si es necesario
+                    showSuccess('Inicio de sesión exitoso');
+                } else {
+                    showError('Error en la autenticación');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showError('Error en la conexión');
+            }
+        }
+
+        // ... (resto de tu código existente) ...
+    </script>
 </body>
 </html>
