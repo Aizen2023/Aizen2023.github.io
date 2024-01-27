@@ -129,10 +129,10 @@
         // Este es solo un ejemplo básico:
         showSuccess('Inicio de sesión exitoso');
 
-        // Redirigir a Usuario.html después de 2 segundos (puedes ajustar el tiempo según tus necesidades)
+         console.log('Redireccionando a Usuario.html');
         setTimeout(function () {
-            window.location.href = 'Usuario.html';
-        }, 2000);
+        window.location.href = 'Usuario.html';
+    }, 2000);
     }
 
     function isValidEmail(email) {
