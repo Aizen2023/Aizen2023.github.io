@@ -107,7 +107,12 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <script>
-    function login() {
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar la recarga de la página al enviar el formulario
+            login();
+        });
+
+        function login() {
             var email = document.getElementById('email').value;
             var password = document.getElementById('password').value;
 
