@@ -107,80 +107,82 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <script>
-        function login() {
-            event.preventDefault(); // Evitar que se envíe el formulario de forma convencional
-            var email = document.getElementById('email').value;
-            var password = document.getElementById('password').value;
+    function login() {
+        event.preventDefault(); // Evitar que se envíe el formulario de forma convencional
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
 
-            console.log("Email:", email);
-            console.log("Password:", password);
+        console.log("Email:", email);
+        console.log("Password:", password);
 
-            // Mostrar correo y contraseña con SweetAlert
-            showCredentials(email, password);
-
-            // Validar el formato del correo
-            if (!isValidEmail(email)) {
-                showError('Formato de correo incorrecto');
-                return;
-            }
-
-            // Validar la contraseña
-            if (!isValidPassword(password)) {
-                showError('La contraseña debe tener al menos 8 caracteres con al menos una minúscula, una mayúscula y un número');
-                return;
-            }
-
-            // Este es solo un ejemplo básico:
-            showSuccess('Inicio de sesión exitoso');
+        // Validar el formato del correo
+        if (!isValidEmail(email)) {
+            showError('Formato de correo incorrecto');
+            return;
         }
 
-        function isValidEmail(email) {
-            // Utilizar una expresión regular para validar el formato del correo
-            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
+        // Validar la contraseña
+        if (!isValidPassword(password)) {
+            showError('La contraseña debe tener al menos 8 caracteres con al menos una minúscula, una mayúscula y un número');
+            return;
         }
 
-        function isValidPassword(password) {
-            // Utilizar una expresión regular para validar la contraseña
-            var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
-            return passwordRegex.test(password);
+        // Este es solo un ejemplo básico:
+        showSuccess('Inicio de sesión exitoso');
+
+        // Redirigir a Usuario.html después de 2 segundos (puedes ajustar el tiempo según tus necesidades)
+        setTimeout(function () {
+            window.location.href = 'Usuario.html';
+        }, 2000);
+    }
+
+    function isValidEmail(email) {
+        // Utilizar una expresión regular para validar el formato del correo
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    function isValidPassword(password) {
+        // Utilizar una expresión regular para validar la contraseña
+        var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+        return passwordRegex.test(password);
+    }
+
+    function showError(message) {
+        // Mensaje detallado sobre lo que falta en los campos
+        var detailedMessage = message;
+
+        if (!isValidEmail(document.getElementById('email').value)) {
+            detailedMessage += '\n\n- El correo debe tener un formato válido, debe incluir el @.';
         }
 
-        function showError(message) {
-            // Mensaje detallado sobre lo que falta en los campos
-            var detailedMessage = message;
-
-            if (!isValidEmail(document.getElementById('email').value)) {
-                detailedMessage += '\n\n- El correo debe tener un formato válido, debe incluir el @.';
-            }
-
-            if (!isValidPassword(document.getElementById('password').value)) {
-                detailedMessage += '\n\n- La contraseña debe tener al menos 8 caracteres con al menos una minúscula, una mayúscula y un número.';
-            }
-
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                html: detailedMessage
-            });
+        if (!isValidPassword(document.getElementById('password').value)) {
+            detailedMessage += '\n\n- La contraseña debe tener al menos 8 caracteres con al menos una minúscula, una mayúscula y un número.';
         }
 
-        function showSuccess(message) {
-            Swal.fire({
-                icon: 'success',
-                title: 'Éxito',
-                text: message
-            });
-        }
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            html: detailedMessage
+        });
+    }
 
-        function showCredentials(email, password) {
-            // Mostrar correo y contraseña con SweetAlert
-            Swal.fire({
-                icon: 'info',
-                title: 'Credenciales',
-                html: `<p>Correo: ${email}</p><p>Contraseña: ${password}</p>`,
-            });
-        }
-    </script>
+    function showSuccess(message) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Éxito',
+            text: message
+        });
+    }
+
+    function showCredentials(email, password) {
+        // Mostrar correo y contraseña con SweetAlert
+        Swal.fire({
+            icon: 'info',
+            title: 'Credenciales',
+            html: `<p>Correo: ${email}</p><p>Contraseña: ${password}</p>`,
+        });
+    }
+</script>
 </body>
 </html>
