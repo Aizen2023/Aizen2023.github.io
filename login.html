@@ -108,32 +108,31 @@
 
     <script>
     function login() {
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
 
-        console.log("Email:", email);
-        console.log("Password:", password);
+            console.log("Email:", email);
+            console.log("Password:", password);
 
-        // Validar el formato del correo
-        if (!isValidEmail(email)) {
-            showError('Formato de correo incorrecto');
-            return;
+            // Validar el formato del correo
+            if (!isValidEmail(email)) {
+                showError('Formato de correo incorrecto');
+                return;
+            }
+
+            // Validar la contraseña
+            if (!isValidPassword(password)) {
+                showError('La contraseña debe tener al menos 8 caracteres con al menos una minúscula, una mayúscula y un número');
+                return;
+            }
+
+            // Este es solo un ejemplo básico:
+            showSuccess('Inicio de sesión exitoso');
+
+            setTimeout(function () {
+                window.location.href = 'Usuario.html';
+            }, 2000);
         }
-
-        // Validar la contraseña
-        if (!isValidPassword(password)) {
-            showError('La contraseña debe tener al menos 8 caracteres con al menos una minúscula, una mayúscula y un número');
-            return;
-        }
-
-        // Este es solo un ejemplo básico:
-        showSuccess('Inicio de sesión exitoso');
-
-         console.log('Redireccionando a Usuario.html');
-        setTimeout(function () {
-        window.location.href = 'Usuario.html';
-    }, 2000);
-    }
 
     function isValidEmail(email) {
         // Utilizar una expresión regular para validar el formato del correo
